@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @method \Spryker\Zed\MerchantGui\Communication\MerchantGuiCommunicationFactory getFactory()
  */
-class StatusMerchantController extends AbstractController
+class MerchantStatusController extends AbstractController
 {
     protected const PARAM_ID_MERCHANT = 'id-merchant';
     protected const PARAM_MERCHANT_STATUS = 'status';
@@ -36,9 +36,9 @@ class StatusMerchantController extends AbstractController
     public function indexAction(Request $request): RedirectResponse
     {
         $idMerchant = $request->query->get(static::PARAM_ID_MERCHANT);
-        $merchantStatus = $request->query->get(static::PARAM_MERCHANT_STATUS);
+        $newMerchantStatus = $request->query->get(static::PARAM_MERCHANT_STATUS);
 
-        if (!$idMerchant || !$merchantStatus) {
+        if (!$idMerchant || !$newMerchantStatus) {
             return $this->returnErrorRedirect($request);
         }
 
@@ -48,7 +48,8 @@ class StatusMerchantController extends AbstractController
         if (!$merchantTransfer) {
             return $this->returnErrorRedirect($request);
         }
-        $merchantTransfer->setStatus($merchantStatus);
+
+        $merchantTransfer->setStatus($newMerchantStatus);
 
         $merchantResponseTransfer = $this->getFactory()->getMerchantFacade()->updateMerchant($merchantTransfer);
 
