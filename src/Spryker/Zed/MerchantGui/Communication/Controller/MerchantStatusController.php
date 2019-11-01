@@ -15,13 +15,18 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @method \Spryker\Zed\MerchantGui\Communication\MerchantGuiCommunicationFactory getFactory()
  */
-class StatusMerchantController extends AbstractController
+class MerchantStatusController extends AbstractController
 {
     protected const PARAM_ID_MERCHANT = 'id-merchant';
     protected const PARAM_MERCHANT_STATUS = 'status';
 
     protected const MESSAGE_ERROR_MERCHANT_WRONG_PARAMETERS = 'merchant_gui.error_wrong_params';
     protected const MESSAGE_SUCCESS_MERCHANT_STATUS_UPDATE = 'merchant_gui.success_merchant_status_update';
+
+    /**
+     * @uses \Spryker\Zed\MerchantGui\Communication\Controller\ListMerchantController::indexAction()
+     */
+    protected const URL_REDIRECT_MERCHANT_LIST = '/merchant-gui/list-merchant';
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -31,9 +36,9 @@ class StatusMerchantController extends AbstractController
     public function indexAction(Request $request): RedirectResponse
     {
         $idMerchant = $request->query->get(static::PARAM_ID_MERCHANT);
-        $merchantStatus = $request->query->get(static::PARAM_MERCHANT_STATUS);
+        $newMerchantStatus = $request->query->get(static::PARAM_MERCHANT_STATUS);
 
-        if (!$idMerchant || !$merchantStatus) {
+        if (!$idMerchant || !$newMerchantStatus) {
             return $this->returnErrorRedirect($request);
         }
 
@@ -43,7 +48,8 @@ class StatusMerchantController extends AbstractController
         if (!$merchantTransfer) {
             return $this->returnErrorRedirect($request);
         }
-        $merchantTransfer->setStatus($merchantStatus);
+
+        $merchantTransfer->setStatus($newMerchantStatus);
 
         $merchantResponseTransfer = $this->getFactory()->getMerchantFacade()->updateMerchant($merchantTransfer);
 
@@ -53,7 +59,7 @@ class StatusMerchantController extends AbstractController
 
         $this->addSuccessMessage(static::MESSAGE_SUCCESS_MERCHANT_STATUS_UPDATE);
 
-        return $this->redirectResponseExternal($request->headers->get('referer'));
+        return $this->redirectResponseExternal($request->headers->get('referer', static::URL_REDIRECT_MERCHANT_LIST));
     }
 
     /**
@@ -65,6 +71,6 @@ class StatusMerchantController extends AbstractController
     {
         $this->addErrorMessage(static::MESSAGE_ERROR_MERCHANT_WRONG_PARAMETERS);
 
-        return $this->redirectResponseExternal($request->headers->get('referer'));
+        return $this->redirectResponseExternal($request->headers->get('referer', static::URL_REDIRECT_MERCHANT_LIST));
     }
 }
