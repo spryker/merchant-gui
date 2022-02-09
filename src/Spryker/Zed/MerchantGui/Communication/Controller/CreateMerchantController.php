@@ -61,7 +61,6 @@ class CreateMerchantController extends AbstractController
     protected function createMerchant(Request $request, FormInterface $merchantForm)
     {
         $redirectUrl = $request->get(static::PARAM_REDIRECT_URL, MerchantGuiConfig::URL_MERCHANT_LIST);
-        /** @var \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer */
         $merchantTransfer = $merchantForm->getData();
         $merchantResponseTransfer = $this->getFactory()
             ->getMerchantFacade()
