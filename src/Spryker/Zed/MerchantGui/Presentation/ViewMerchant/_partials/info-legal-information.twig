@@ -13,8 +13,8 @@
                     {% embed '@Gui/Partials/localized-ibox.twig' with { 'localeName': localizedAttribute.locale.localeName } %}
                         {% block content %}
                             <div class="row">
-                                <div class="col-xs-2"><b>{{ key | trans }}</b></div>
-                                <div class="col-xs-10">
+                                <div class="col-sm-2"><b>{{ key | trans }}</b></div>
+                                <div class="col-sm-10">
                                     {{ attribute(localizedAttribute.merchantProfileGlossaryAttributeValues, value) }}
                                 </div>
                             </div>

@@ -6,7 +6,7 @@
     "require": {
         "php": ">=8.3",
         "spryker/availability-gui-extension": "^1.0.0",
-        "spryker/gui": "^3.61.0",
+        "spryker/gui": "^4.0.0",
         "spryker/kernel": "^3.52.0",
         "spryker/locale": "^3.0.0 || ^4.0.0",
         "spryker/merchant": "^3.0.0",
