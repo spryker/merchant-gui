@@ -54,7 +54,7 @@ class MerchantTable extends AbstractTable
      */
     protected const STATUS_CLASS_LABEL_MAPPING = [
         MerchantGuiConfig::STATUS_WAITING_FOR_APPROVAL => 'label-warning',
-        MerchantGuiConfig::STATUS_APPROVED => 'label-info',
+        MerchantGuiConfig::STATUS_APPROVED => 'label-success',
         MerchantGuiConfig::STATUS_DENIED => 'label-danger',
     ];
 
@@ -464,7 +464,7 @@ class MerchantTable extends AbstractTable
      */
     public function getActiveLabel(bool $isActive): string
     {
-        return $isActive ? $this->generateLabel('Active', 'label-info') : $this->generateLabel('Inactive', 'label-danger');
+        return $isActive ? $this->generateLabel('Active', 'label-primary') : $this->generateLabel('Inactive', 'label-danger');
     }
 
     /**
