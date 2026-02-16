@@ -25,7 +25,7 @@ class MerchantGuiToStoreFacadeBridge implements MerchantGuiToStoreFacadeInterfac
     }
 
     /**
-     * @return list<\Generated\Shared\Transfer\StoreTransfer>
+     * @return array<\Generated\Shared\Transfer\StoreTransfer>
      */
     public function getAllStores(): array
     {
