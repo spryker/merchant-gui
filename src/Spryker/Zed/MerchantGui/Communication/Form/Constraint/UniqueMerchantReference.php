@@ -38,35 +38,21 @@ class UniqueMerchantReference extends Constraint
      */
     protected $currentMerchantId;
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::VALIDATION_MESSAGE;
     }
 
-    /**
-     * @return int|null
-     */
     public function getCurrentMerchantId(): ?int
     {
         return $this->currentMerchantId;
     }
 
-    /**
-     * @param string $merchantReference
-     *
-     * @return \Generated\Shared\Transfer\MerchantTransfer|null
-     */
     public function findMerchantByReference(string $merchantReference): ?MerchantTransfer
     {
         $merchantCriteriaTransfer = new MerchantCriteriaTransfer();

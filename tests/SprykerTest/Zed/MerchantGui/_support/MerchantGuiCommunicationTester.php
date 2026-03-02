@@ -36,9 +36,6 @@ class MerchantGuiCommunicationTester extends Actor
      */
     protected const DEFAULT_STORE = 'DE';
 
-    /**
-     * @return \Generated\Shared\Transfer\StoreTransfer
-     */
     public function getStore(): StoreTransfer
     {
         if ($this->isDynamicStoreEnabled()) {
@@ -48,11 +45,6 @@ class MerchantGuiCommunicationTester extends Actor
         return $this->getLocator()->store()->facade()->getCurrentStore();
     }
 
-    /**
-     * @param array $seedData
-     *
-     * @return \Generated\Shared\Transfer\MerchantTableCriteriaTransfer
-     */
     public function createMerchantTableCriteriaTransfer(array $seedData = []): MerchantTableCriteriaTransfer
     {
         return (new MerchantTableCriteriaTransfer())

@@ -44,12 +44,6 @@ class UniqueUrlValidator extends ConstraintValidator
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UrlTransfer $urlTransfer
-     * @param \Spryker\Zed\MerchantGui\Communication\Form\Constraint\UniqueUrl $constraint
-     *
-     * @return bool
-     */
     protected function hasUrl(UrlTransfer $urlTransfer, UniqueUrl $constraint): bool
     {
         $existingUrlTransfer = $constraint->getUrlFacade()->findUrlCaseInsensitive(

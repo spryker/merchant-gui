@@ -125,21 +125,11 @@ class MerchantTable extends AbstractTable
         $this->merchantTableConfigExpanderPlugins = $merchantTableConfigExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTableCriteriaTransfer $merchantTableCriteriaTransfer
-     *
-     * @return void
-     */
     public function applyCriteria(MerchantTableCriteriaTransfer $merchantTableCriteriaTransfer): void
     {
         $this->applicableMerchantTableCriteriaTransfer = $merchantTableCriteriaTransfer;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config = $this->setHeader($config);
@@ -170,11 +160,6 @@ class MerchantTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function executeConfigExpanderPlugins(TableConfiguration $tableConfiguration): TableConfiguration
     {
         foreach ($this->merchantTableConfigExpanderPlugins as $merchantTableConfigExpanderPlugin) {
@@ -184,11 +169,6 @@ class MerchantTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param array $item
-     *
-     * @return array
-     */
     protected function executeDataExpanderPlugins(array $item): array
     {
         $data = [];
@@ -199,11 +179,6 @@ class MerchantTable extends AbstractTable
         return array_merge([], ...$data);
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function setHeader(TableConfiguration $config): TableConfiguration
     {
         $baseData = [
@@ -222,9 +197,6 @@ class MerchantTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @return array
-     */
     protected function executeTableHeaderExpanderPlugins(): array
     {
         $expandedData = [];
@@ -235,9 +207,6 @@ class MerchantTable extends AbstractTable
         return array_merge([], ...$expandedData);
     }
 
-    /**
-     * @return \Orm\Zed\Merchant\Persistence\SpyMerchantQuery
-     */
     protected function prepareQuery(): SpyMerchantQuery
     {
         $this->merchantQuery
@@ -255,9 +224,6 @@ class MerchantTable extends AbstractTable
         return $this->merchantQuery;
     }
 
-    /**
-     * @return void
-     */
     protected function applyMerchantTableCriteriaFilters(): void
     {
         if (!$this->applicableMerchantTableCriteriaTransfer) {
@@ -283,11 +249,6 @@ class MerchantTable extends AbstractTable
         }
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return array
-     */
     protected function prepareData(TableConfiguration $config): array
     {
         $queryResults = $this->runQuery($this->prepareQuery(), $config);
@@ -309,11 +270,6 @@ class MerchantTable extends AbstractTable
         return $results;
     }
 
-    /**
-     * @param array $item
-     *
-     * @return string
-     */
     protected function buildLinks(array $item): string
     {
         $buttons = [];
@@ -338,11 +294,6 @@ class MerchantTable extends AbstractTable
         return implode(' ', $buttons);
     }
 
-    /**
-     * @param array $item
-     *
-     * @return array
-     */
     protected function buildAvailableStatusButtons(array $item): array
     {
         $availableStatusButtons = [];
@@ -362,11 +313,6 @@ class MerchantTable extends AbstractTable
         return $availableStatusButtons;
     }
 
-    /**
-     * @param int $idMerchant
-     *
-     * @return string
-     */
     protected function createActivateButton(int $idMerchant): string
     {
         return $this->generateFormButton(
@@ -383,11 +329,6 @@ class MerchantTable extends AbstractTable
         );
     }
 
-    /**
-     * @param int $idMerchant
-     *
-     * @return string
-     */
     protected function createDeactivateButton(int $idMerchant): string
     {
         return $this->generateFormButton(
@@ -441,11 +382,6 @@ class MerchantTable extends AbstractTable
         return array_merge([], ...$buttonTransfers);
     }
 
-    /**
-     * @param array $merchant
-     *
-     * @return string
-     */
     protected function createStatusLabel(array $merchant): string
     {
         $currentStatus = $merchant[SpyMerchantTableMap::COL_STATUS];
@@ -457,21 +393,11 @@ class MerchantTable extends AbstractTable
         return $this->generateLabel($currentStatus, static::STATUS_CLASS_LABEL_MAPPING[$currentStatus]);
     }
 
-    /**
-     * @param bool $isActive
-     *
-     * @return string
-     */
     public function getActiveLabel(bool $isActive): string
     {
         return $isActive ? $this->generateLabel('Active', 'label-primary') : $this->generateLabel('Inactive', 'label-danger');
     }
 
-    /**
-     * @param array $merchant
-     *
-     * @return string
-     */
     protected function createStoresLabel(array $merchant): string
     {
         $storeNames = explode(',', $merchant[static::COL_STORES]);
@@ -484,9 +410,6 @@ class MerchantTable extends AbstractTable
         return implode(' ', $storeLabels);
     }
 
-    /**
-     * @return string
-     */
     protected function getTableUrl(): string
     {
         return Url::generate(
@@ -495,9 +418,6 @@ class MerchantTable extends AbstractTable
         );
     }
 
-    /**
-     * @return string
-     */
     protected function prepareStoresSubQuery(): string
     {
         if (!$this->applicableMerchantTableCriteriaTransfer?->getStores()) {

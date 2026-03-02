@@ -14,25 +14,10 @@ use Generated\Shared\Transfer\MerchantTransfer;
 
 interface MerchantGuiToMerchantFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function createMerchant(MerchantTransfer $merchantTransfer): MerchantResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function updateMerchant(MerchantTransfer $merchantTransfer): MerchantResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCriteriaTransfer $merchantCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantTransfer|null
-     */
     public function findOne(MerchantCriteriaTransfer $merchantCriteriaTransfer): ?MerchantTransfer;
 
     /**
@@ -42,10 +27,5 @@ interface MerchantGuiToMerchantFacadeInterface
      */
     public function getApplicableMerchantStatuses(string $currentStatus): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCriteriaTransfer $merchantCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantCollectionTransfer
-     */
     public function get(MerchantCriteriaTransfer $merchantCriteriaTransfer): MerchantCollectionTransfer;
 }

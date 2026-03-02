@@ -24,21 +24,11 @@ class MerchantGuiToUrlFacadeBridge implements MerchantGuiToUrlFacadeInterface
         $this->urlFacade = $urlFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UrlTransfer $urlTransfer
-     *
-     * @return \Generated\Shared\Transfer\UrlTransfer|null
-     */
     public function findUrlCaseInsensitive(UrlTransfer $urlTransfer): ?UrlTransfer
     {
         return $this->urlFacade->findUrlCaseInsensitive($urlTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\UrlTransfer $urlTransfer
-     *
-     * @return bool
-     */
     public function hasUrlCaseInsensitive(UrlTransfer $urlTransfer): bool
     {
         return $this->urlFacade->hasUrlCaseInsensitive($urlTransfer);

@@ -38,9 +38,6 @@ use Symfony\Component\Form\FormInterface;
  */
 class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\MerchantGui\Communication\Table\MerchantTable
-     */
     public function createMerchantTable(): MerchantTable
     {
         return new MerchantTable(
@@ -64,11 +61,6 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(MerchantCreateForm::class, $data, $options);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTableCriteriaTransfer|null $merchantTableCriteriaTransfer
-     *
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createMerchantTableFilterForm(?MerchantTableCriteriaTransfer $merchantTableCriteriaTransfer = null): FormInterface
     {
         $merchantTableFilterFormDataProvider = $this->createMerchantTableFilterFormDataProvider();
@@ -87,9 +79,6 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(MerchantUpdateForm::class, $data, $options);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Communication\Form\DataProvider\MerchantFormDataProvider
-     */
     public function createMerchantFormDataProvider(): MerchantFormDataProvider
     {
         return new MerchantFormDataProvider(
@@ -99,9 +88,6 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Communication\Tabs\MerchantFormTabs
-     */
     public function createMerchantFormTabs(): MerchantFormTabs
     {
         return new MerchantFormTabs(
@@ -109,9 +95,6 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Communication\Form\Constraint\UniqueUrl
-     */
     public function createUniqueUrlConstraint(): UniqueUrl
     {
         return new UniqueUrl([
@@ -119,25 +102,16 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         ]);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Communication\Expander\MerchantListDataExpanderInterface
-     */
     public function createMerchantListDataExpander(): MerchantListDataExpanderInterface
     {
         return new MerchantListDataExpander($this->getMerchantFacade());
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createToggleActiveMerchantForm(): FormInterface
     {
         return $this->getFormFactory()->create(ToggleActiveMerchantForm::class);
     }
 
-    /**
-     * @return \Symfony\Component\Form\FormInterface
-     */
     public function createMerchantStatusForm(): FormInterface
     {
         return $this->getFormFactory()->create(MerchantStatusForm::class);
@@ -154,17 +128,11 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(MerchantViewForm::class, $data, $options);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToMerchantFacadeInterface
-     */
     public function getMerchantFacade(): MerchantGuiToMerchantFacadeInterface
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::FACADE_MERCHANT);
     }
 
-    /**
-     * @return \Orm\Zed\Merchant\Persistence\SpyMerchantQuery
-     */
     public function getMerchantPropelQuery(): SpyMerchantQuery
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::PROPEL_MERCHANT_QUERY);
@@ -234,49 +202,31 @@ class MerchantGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::PLUGINS_MERCHANT_FORM_TABS_EXPANDER);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToUrlFacadeInterface
-     */
     public function getUrlFacade(): MerchantGuiToUrlFacadeInterface
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::FACADE_URL);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): MerchantGuiToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::FACADE_LOCALE);
     }
 
-    /**
-     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
-     */
     public function getStoreRelationFormTypePlugin(): FormTypeInterface
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::PLUGIN_STORE_RELATION_FORM_TYPE);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToTranslatorFacadeInterface
-     */
     public function getTranslatorFacade(): MerchantGuiToTranslatorFacadeInterface
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::FACADE_TRANSLATOR);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToStoreFacadeInterface
-     */
     public function getStoreFacade(): MerchantGuiToStoreFacadeInterface
     {
         return $this->getProvidedDependency(MerchantGuiDependencyProvider::FACADE_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Communication\Form\DataProvider\MerchantFilterFormDataProvider
-     */
     protected function createMerchantTableFilterFormDataProvider(): MerchantFilterFormDataProvider
     {
         return new MerchantFilterFormDataProvider(

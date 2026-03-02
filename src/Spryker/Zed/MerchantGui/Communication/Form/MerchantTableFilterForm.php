@@ -66,11 +66,6 @@ class MerchantTableFilterForm extends AbstractType
      */
     protected const LABEL_APPROVAL_STATUS = 'Approval Status';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setRequired([

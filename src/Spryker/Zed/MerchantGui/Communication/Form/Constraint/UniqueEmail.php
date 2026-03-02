@@ -32,17 +32,11 @@ class UniqueEmail extends SymfonyConstraint
      */
     protected $currentIdMerchant;
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToMerchantFacadeInterface
-     */
     public function getMerchantFacade(): MerchantGuiToMerchantFacadeInterface
     {
         return $this->merchantFacade;
     }
 
-    /**
-     * @return int|null
-     */
     public function getCurrentIdMerchant(): ?int
     {
         return $this->currentIdMerchant;

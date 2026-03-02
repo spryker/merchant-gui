@@ -27,31 +27,16 @@ class MerchantGuiToMerchantFacadeBridge implements MerchantGuiToMerchantFacadeIn
         $this->merchantFacade = $merchantFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function createMerchant(MerchantTransfer $merchantTransfer): MerchantResponseTransfer
     {
         return $this->merchantFacade->createMerchant($merchantTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantResponseTransfer
-     */
     public function updateMerchant(MerchantTransfer $merchantTransfer): MerchantResponseTransfer
     {
         return $this->merchantFacade->updateMerchant($merchantTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCriteriaTransfer $merchantCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantTransfer|null
-     */
     public function findOne(MerchantCriteriaTransfer $merchantCriteriaTransfer): ?MerchantTransfer
     {
         return $this->merchantFacade->findOne($merchantCriteriaTransfer);
@@ -67,11 +52,6 @@ class MerchantGuiToMerchantFacadeBridge implements MerchantGuiToMerchantFacadeIn
         return $this->merchantFacade->getApplicableMerchantStatuses($currentStatus);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantCriteriaTransfer $merchantCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantCollectionTransfer
-     */
     public function get(MerchantCriteriaTransfer $merchantCriteriaTransfer): MerchantCollectionTransfer
     {
         return $this->merchantFacade->get($merchantCriteriaTransfer);

@@ -89,21 +89,11 @@ class EditMerchantController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function activateAction(Request $request): RedirectResponse
     {
         return $this->updateMerchantActivityStatus($request, true, static::MESSAGE_SUCCESS_ACTIVATE);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function deactivateAction(Request $request): RedirectResponse
     {
         return $this->updateMerchantActivityStatus($request, false, static::MESSAGE_SUCCESS_DEACTIVATE);
@@ -138,13 +128,6 @@ class EditMerchantController extends AbstractController
         return $this->redirectResponse($redirectUrl);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param bool $isActive
-     * @param string $successMessage
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function updateMerchantActivityStatus(Request $request, bool $isActive, string $successMessage): RedirectResponse
     {
         $form = $this->getFactory()->createToggleActiveMerchantForm()->handleRequest($request);

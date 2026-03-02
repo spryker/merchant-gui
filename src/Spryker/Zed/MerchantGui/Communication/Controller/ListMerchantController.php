@@ -22,11 +22,6 @@ class ListMerchantController extends AbstractController
      */
     protected const REQUEST_PARAM_MERCHANT_TABLE_FILTER_FORM = 'merchant_table_filter_form';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return array
-     */
     public function indexAction(Request $request): array
     {
         $merchantTableCriteriaTransfer = $this->createMerchantTableCriteriaTransfer($request);
@@ -42,11 +37,6 @@ class ListMerchantController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function tableAction(Request $request): JsonResponse
     {
         $merchantTableCriteriaTransfer = $this->createMerchantTableCriteriaTransfer($request);
@@ -59,11 +49,6 @@ class ListMerchantController extends AbstractController
         return $this->jsonResponse($merchantTable->fetchData());
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Generated\Shared\Transfer\MerchantTableCriteriaTransfer
-     */
     protected function createMerchantTableCriteriaTransfer(Request $request): MerchantTableCriteriaTransfer
     {
         return (new MerchantTableCriteriaTransfer())

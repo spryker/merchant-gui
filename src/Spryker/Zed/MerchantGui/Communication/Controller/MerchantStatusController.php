@@ -44,11 +44,6 @@ class MerchantStatusController extends AbstractController
      */
     protected const URL_REDIRECT_MERCHANT_LIST = '/merchant-gui/list-merchant';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function indexAction(Request $request): RedirectResponse
     {
         $form = $this->getFactory()->createMerchantStatusForm()->handleRequest($request);
@@ -86,11 +81,6 @@ class MerchantStatusController extends AbstractController
         return $this->redirectResponse($request->headers->get('referer', static::URL_REDIRECT_MERCHANT_LIST));
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function returnErrorRedirect(Request $request): RedirectResponse
     {
         $this->addErrorMessage(static::MESSAGE_ERROR_MERCHANT_WRONG_PARAMETERS);

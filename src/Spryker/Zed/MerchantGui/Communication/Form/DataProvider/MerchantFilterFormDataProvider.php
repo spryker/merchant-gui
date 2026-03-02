@@ -59,9 +59,6 @@ class MerchantFilterFormDataProvider
         ];
     }
 
-    /**
-     * @param \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToStoreFacadeInterface $storeFacade
-     */
     public function __construct(protected MerchantGuiToStoreFacadeInterface $storeFacade)
     {
     }

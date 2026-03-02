@@ -26,11 +26,6 @@ class MerchantFormTabs extends AbstractTabs
         $this->merchantFormTabExpanderPlugins = $merchantFormTabExpanderPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     protected function build(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer
     {
         $this->addGeneralTab($tabsViewTransfer)
@@ -56,11 +51,6 @@ class MerchantFormTabs extends AbstractTabs
         return $this;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\TabsViewTransfer $tabsViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\TabsViewTransfer
-     */
     protected function executeMerchantFormTabExpanderPlugins(TabsViewTransfer $tabsViewTransfer): TabsViewTransfer
     {
         foreach ($this->merchantFormTabExpanderPlugins as $merchantFormTabExpanderPlugin) {

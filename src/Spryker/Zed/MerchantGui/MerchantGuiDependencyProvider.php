@@ -100,11 +100,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGIN_STORE_RELATION_FORM_TYPE = 'PLUGIN_STORE_RELATION_FORM_TYPE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = parent::provideCommunicationLayerDependencies($container);
@@ -128,11 +123,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantFacade(Container $container): Container
     {
         $container->set(static::FACADE_MERCHANT, function (Container $container) {
@@ -142,11 +132,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPropelMerchantQuery(Container $container): Container
     {
         $container->set(static::PROPEL_MERCHANT_QUERY, $container->factory(function () {
@@ -156,11 +141,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantFormExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_FORM_EXPANDER, function () {
@@ -170,11 +150,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantTableActionExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_TABLE_ACTION_EXPANDER, function () {
@@ -184,11 +159,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantTableDataExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_TABLE_DATA_EXPANDER, function () {
@@ -198,11 +168,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantTableHeaderExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_TABLE_HEADER_EXPANDER, function () {
@@ -212,11 +177,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantTableConfigExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_TABLE_CONFIG_EXPANDER, function () {
@@ -226,11 +186,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantFormTabsExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_FORM_TABS_EXPANDER, function () {
@@ -240,11 +195,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantUpdateFormViewExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_UPDATE_FORM_VIEW_EXPANDER, function () {
@@ -254,11 +204,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addMerchantViewFormViewExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_MERCHANT_VIEW_FORM_VIEW_EXPANDER, function () {
@@ -268,11 +213,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addUrlFacade(Container $container): Container
     {
         $container->set(static::FACADE_URL, function (Container $container) {
@@ -282,11 +222,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStoreFacade(Container $container): Container
     {
         $container->set(static::FACADE_STORE, function (Container $container): MerchantGuiToStoreFacadeInterface {
@@ -296,11 +231,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addTranslatorFacade(Container $container): Container
     {
         $container->set(static::FACADE_TRANSLATOR, function (Container $container): MerchantGuiToTranslatorFacadeInterface {
@@ -310,11 +240,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addLocaleFacade(Container $container): Container
     {
         $container->set(static::FACADE_LOCALE, function (Container $container) {
@@ -324,11 +249,6 @@ class MerchantGuiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStoreRelationFormTypePlugin(Container $container): Container
     {
         $container->set(static::PLUGIN_STORE_RELATION_FORM_TYPE, function () {

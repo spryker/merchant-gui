@@ -81,9 +81,6 @@ class MerchantTableQueryTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -93,9 +90,6 @@ class MerchantTableQueryTest extends Unit
         $this->registerRequestStack();
     }
 
-    /**
-     * @return void
-     */
     public function testFetchDataCollectsCorrectMerchantData(): void
     {
         // Arrange
@@ -245,25 +239,16 @@ class MerchantTableQueryTest extends Unit
         return $this->getMockBuilder(MerchantGuiToMerchantFacadeInterface::class)->getMock();
     }
 
-    /**
-     * @return void
-     */
     protected function registerTwigServiceMock(): void
     {
         $this->tester->getContainer()->set(static::SERVICE_TWIG, $this->getTwigMock());
     }
 
-    /**
-     * @return void
-     */
     protected function registerFormFactoryServiceMock(): void
     {
         $this->tester->getContainer()->set(static::SERVICE_FORM_FACTORY, $this->getFormFactoryMock());
     }
 
-    /**
-     * @return void
-     */
     protected function registerRequestStack(): void
     {
         $requestStack = new RequestStack();
@@ -286,9 +271,6 @@ class MerchantTableQueryTest extends Unit
         return $twigMock;
     }
 
-    /**
-     * @return \Twig\Loader\LoaderInterface
-     */
     protected function getChainLoader(): LoaderInterface
     {
         return new ChainLoader();

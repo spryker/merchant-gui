@@ -17,9 +17,6 @@ class MerchantListDataExpander implements MerchantListDataExpanderInterface
      */
     protected $merchantFacade;
 
-    /**
-     * @param \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToMerchantFacadeInterface $merchantFacade
-     */
     public function __construct(MerchantGuiToMerchantFacadeInterface $merchantFacade)
     {
         $this->merchantFacade = $merchantFacade;

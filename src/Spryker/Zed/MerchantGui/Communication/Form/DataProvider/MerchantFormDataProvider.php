@@ -35,11 +35,6 @@ class MerchantFormDataProvider
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToMerchantFacadeInterface $merchantFacade
-     * @param \Spryker\Zed\MerchantGui\MerchantGuiConfig $config
-     * @param \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         MerchantGuiToMerchantFacadeInterface $merchantFacade,
         MerchantGuiConfig $config,
@@ -50,11 +45,6 @@ class MerchantFormDataProvider
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param int|null $idMerchant
-     *
-     * @return \Generated\Shared\Transfer\MerchantTransfer
-     */
     public function getData(?int $idMerchant = null): MerchantTransfer
     {
         $merchantTransfer = new MerchantTransfer();
@@ -74,11 +64,6 @@ class MerchantFormDataProvider
         return $merchantTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantTransfer
-     */
     protected function setInitialUrlCollection(MerchantTransfer $merchantTransfer): MerchantTransfer
     {
         $merchantUrlCollection = $merchantTransfer->getUrlCollection();
@@ -133,11 +118,6 @@ class MerchantFormDataProvider
         ];
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return string
-     */
     protected function getLocalizedUrlPrefix(LocaleTransfer $localeTransfer): string
     {
         $localeNameParts = explode('_', $localeTransfer->getLocaleName());

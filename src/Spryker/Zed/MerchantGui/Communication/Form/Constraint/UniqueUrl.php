@@ -22,17 +22,11 @@ class UniqueUrl extends SymfonyConstraint
      */
     protected $urlFacade;
 
-    /**
-     * @return \Spryker\Zed\MerchantGui\Dependency\Facade\MerchantGuiToUrlFacadeInterface
-     */
     public function getUrlFacade(): MerchantGuiToUrlFacadeInterface
     {
         return $this->urlFacade;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
