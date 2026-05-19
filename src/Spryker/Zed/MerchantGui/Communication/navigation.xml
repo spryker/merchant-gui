@@ -29,6 +29,15 @@
                         <action>index</action>
                         <visible>0</visible>
                     </merchant-edit>
+
+                    <merchant-view>
+                        <label>View Merchant</label>
+                        <title>View Merchant</title>
+                        <bundle>merchant-gui</bundle>
+                        <controller>view-merchant</controller>
+                        <action>index</action>
+                        <visible>0</visible>
+                    </merchant-view>
                 </pages>
             </merchant>
         </pages>
