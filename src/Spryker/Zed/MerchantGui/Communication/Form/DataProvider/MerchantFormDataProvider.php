@@ -90,13 +90,17 @@ class MerchantFormDataProvider
     protected function setUrlPrefixToUrlTransfer($merchantUrlCollection, LocaleTransfer $localeTransfer): UrlTransfer
     {
         $urlTransfer = new UrlTransfer();
-        foreach ($merchantUrlCollection as $urlTransfer) {
-            if ($urlTransfer->getFkLocale() === $localeTransfer->getIdLocale()) {
-                $urlTransfer->fromArray($urlTransfer->toArray(), true);
 
-                break;
+        foreach ($merchantUrlCollection as $existingUrlTransfer) {
+            if ($existingUrlTransfer->getFkLocale() !== $localeTransfer->getIdLocale()) {
+                continue;
             }
+
+            $urlTransfer->fromArray($existingUrlTransfer->toArray(), true);
+
+            break;
         }
+
         $urlTransfer->setFkLocale($localeTransfer->getIdLocale());
         $urlTransfer->setUrlPrefix(
             $this->getLocalizedUrlPrefix($localeTransfer),
