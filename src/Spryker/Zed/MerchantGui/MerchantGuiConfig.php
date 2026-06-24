@@ -12,6 +12,8 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
 class MerchantGuiConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\MerchantGui\Communication\Controller\ListMerchantController::indexAction()
      *
      * @var string
@@ -19,6 +21,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const URL_MERCHANT_LIST = '/merchant-gui/list-merchant';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\MerchantGui\Communication\Controller\EditMerchantController::indexAction()
      *
      * @var string
@@ -38,6 +42,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const URL_MERCHANT_VIEW = '/merchant-gui/view-merchant';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\MerchantGui\Communication\Controller\EditMerchantController::activateAction()
      *
      * @var string
@@ -45,6 +51,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const URL_MERCHANT_ACTIVATE = '/merchant-gui/edit-merchant/activate';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\MerchantGui\Communication\Controller\EditMerchantController::deactivateAction()
      *
      * @var string
@@ -52,6 +60,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const URL_MERCHANT_DEACTIVATE = '/merchant-gui/edit-merchant/deactivate';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\MerchantGui\Communication\Controller\MerchantStatusController::indexAction()
      *
      * @var string
@@ -59,6 +69,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const URL_MERCHANT_STATUS = '/merchant-gui/merchant-status';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\Merchant\MerchantConfig::STATUS_WAITING_FOR_APPROVAL
      *
      * @var string
@@ -66,6 +78,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const STATUS_WAITING_FOR_APPROVAL = 'waiting-for-approval';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\Merchant\MerchantConfig::STATUS_APPROVED
      *
      * @var string
@@ -73,6 +87,8 @@ class MerchantGuiConfig extends AbstractBundleConfig
     public const STATUS_APPROVED = 'approved';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Zed\Merchant\MerchantConfig::STATUS_DENIED
      *
      * @var string
