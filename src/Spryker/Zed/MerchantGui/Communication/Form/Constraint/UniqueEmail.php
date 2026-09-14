@@ -42,10 +42,7 @@ class UniqueEmail extends SymfonyConstraint
         return $this->currentIdMerchant;
     }
 
-    /**
-     * @return string
-     */
-    public function getTargets()
+    public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }
