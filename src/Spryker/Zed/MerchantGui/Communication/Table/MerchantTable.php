@@ -395,7 +395,7 @@ class MerchantTable extends AbstractTable
 
     public function getActiveLabel(bool $isActive): string
     {
-        return $isActive ? $this->generateLabel('Active', 'label-primary') : $this->generateLabel('Inactive', 'label-danger');
+        return $isActive ? $this->generateLabel('Active', 'label-primary') : $this->generateLabel('Inactive', 'badge-outline-dark');
     }
 
     protected function createStoresLabel(array $merchant): string
